@@ -1,0 +1,5 @@
+"Series","ADF_p","KPSS_p"
+"Original",0.316847885811502,0.1
+"Ordinary difference",0.01,0.1
+"Seasonal difference",0.0301085985832917,0.01
+"Both differences",0.01,0.1

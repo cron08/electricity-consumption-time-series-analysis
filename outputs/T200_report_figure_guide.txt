@@ -1,0 +1,30 @@
+Report figures
+
+Exploratory plots
+  Figures/01_original_series.png
+  Figures/02_annual_seasonal_overlay.png
+  Figures/03_original_acf_pacf.png
+  Figures/04_boxcox_variance_check.png
+  Figures/05_candidate_differences.png
+  Figures/06_ordinary_difference_acf_pacf.png
+  Figures/07_seasonal_difference_acf_pacf.png
+  Figures/08_double_difference_acf_pacf.png
+
+Top model diagnostics
+  Figures/Top_Models/01_raw_SARIMA_013_110_diagnostics.png
+  Figures/Top_Models/02_raw_SARIMA_211_110_diagnostics.png
+  Figures/Top_Models/03_guerrero_SARIMA_013_110_diagnostics.png
+  Figures/Top_Models/04_guerrero_SARIMA_211_110_diagnostics.png
+  Figures/Top_Models/05_guerrero_SARIMA_211_010_diagnostics.png
+
+Joint Box-Cox likelihood figure
+  Figures/09_joint_boxcox_profile_likelihood.png
+
+Tables
+  Tables/boxcox_lambda_values.csv
+  Tables/joint_boxcox_estimates.csv
+  Tables/joint_boxcox_profile_likelihoods.csv
+  Tables/stationarity_tests.csv
+  Tables/candidate_model_comparison.csv
+  Tables/top_model_comparison.csv
+  Tables/top_model_parameters.csv

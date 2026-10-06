@@ -1,0 +1,103 @@
+
+> cat("MATH5845 T200 analysis summary\n\n")
+MATH5845 T200 analysis summary
+
+
+> cat("Observations:", length(y), "\n")
+Observations: 156 
+
+> cat("Seasonal period:", seasonalperiod, "weeks\n")
+Seasonal period: 52 weeks
+
+> cat("ndiffs(y):", d_rec, "\n")
+ndiffs(y): 0 
+
+> cat("nsdiffs(y):", D_rec, "\n\n")
+nsdiffs(y): 1 
+
+
+> cat("Box-Cox values\n")
+Box-Cox values
+
+> print(lambda_table, row.names = FALSE)
+                                        Method    Lambda
+                        Guerrero (preliminary)  1.999924
+ forecast profile log-likelihood (preliminary) -0.300000
+                             Lecturer feedback  1.999927
+
+> cat("\nGuerrero lambda used for top models:", lambda_guerrero, "\n")
+
+Guerrero lambda used for top models: 1.999924 
+
+> cat("\njoint Joint Box-Cox likelihood\n")
+
+joint Joint Box-Cox likelihood
+
+> print(joint_boxcox_estimates, digits = 5, row.names = FALSE)
+                Structure Lambda_joint_MLE Lambda_CI_lower Lambda_CI_upper Joint_logLik_max Joint_logLik_at_lambda_1
+ SARIMA(2,1,1)(0,1,0)[52]         -0.34391        -0.48946         0.66734          -1338.6                  -1341.5
+ SARIMA(0,1,3)(1,1,0)[52]         -0.38261        -0.47657         0.39726          -1331.9                  -1335.8
+ SARIMA(2,1,1)(1,1,0)[52]         -0.38111        -0.47965         0.39268          -1332.3                  -1336.1
+ Joint_logLik_at_lecturer_lambda Boundary_solution Improvement_over_lecturer_lambda
+                         -1345.4             FALSE                           6.7912
+                         -1340.3             FALSE                           8.3782
+                         -1340.5             FALSE                           8.2419
+
+> cat("\ntop models\n")
+
+top models
+
+> print(topmodeltable, digits = 4, row.names = FALSE)
+                                      Model   Transformation Lambda Lambda_estimated n_eff k adjusted_logLik
+              SARIMA(0,1,3)(1,1,0)[52], raw              Raw      1            FALSE   103 5           -1336
+              SARIMA(2,1,1)(1,1,0)[52], raw              Raw      1            FALSE   103 5           -1336
+ SARIMA(0,1,3)(1,1,0)[52], Guerrero Box-Cox Guerrero Box-Cox      2             TRUE   103 6           -1340
+ SARIMA(2,1,1)(1,1,0)[52], Guerrero Box-Cox Guerrero Box-Cox      2             TRUE   103 6           -1340
+ SARIMA(2,1,1)(0,1,0)[52], Guerrero Box-Cox Guerrero Box-Cox      2             TRUE   103 5           -1345
+ adjusted_AIC adjusted_AICc adjusted_BIC LjungBox20_p LjungBox31_p Shapiro_W Shapiro_p min_AR_root min_MA_root
+         2682          2682         2695       0.9579       0.9055    0.9584 2.427e-03       1.014       1.112
+         2682          2683         2695       0.9311       0.8971    0.9521 8.743e-04       1.016       1.149
+         2693          2693         2708       0.9469       0.9163    0.9452 3.047e-04       1.015       1.097
+         2693          2694         2709       0.9261       0.9243    0.9374 9.841e-05       1.016       1.144
+         2701          2701         2714       0.9736       0.9873    0.9340 6.085e-05       1.582       1.128
+ All_AR_MA_coefficients_significant_5pct Delta_AICc Delta_BIC
+                                   FALSE     0.0000    0.0000
+                                    TRUE     0.7257    0.7257
+                                   FALSE    11.2371   13.6154
+                                    TRUE    11.7109   14.0892
+                                    TRUE    19.2974   19.2974
+
+> cat("\nauto.arima - raw series\n")
+
+auto.arima - raw series
+
+> print(auto_raw)
+Series: y 
+ARIMA(0,1,3)(1,1,0)[52] 
+
+Coefficients:
+          ma1      ma2      ma3     sar1
+      -0.1329  -0.4840  -0.1845  -0.4817
+s.e.   0.0998   0.0799   0.0937   0.1090
+
+sigma^2 = 9.706e+09:  log likelihood = -1335.77
+AIC=2681.54   AICc=2682.16   BIC=2694.71
+
+> cat("\nauto.arima - lecturer Box-Cox value\n")
+
+auto.arima - lecturer Box-Cox value
+
+> print(auto_boxcox)
+Series: y 
+ARIMA(0,1,3)(1,1,0)[52] 
+Box Cox transformation: lambda= 1.999927 
+
+Coefficients:
+          ma1      ma2      ma3     sar1
+      -0.1180  -0.4999  -0.2036  -0.4723
+s.e.   0.1013   0.0772   0.0955   0.1109
+
+sigma^2 = 3.169e+22:  log likelihood = -2819.47
+AIC=5648.94   AICc=5649.55   BIC=5662.11
+
+> sink()
